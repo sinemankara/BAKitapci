@@ -26,12 +26,12 @@ public class Kitapci implements IKitapci{
 
     public void kitapciMenu(){
         System.out.println("Kitapçıya hoşgeldiniz yapabiliceğiniz işlemler aşağıda listelenmiştir.\n"
-                          +"1-Yayın Ekle\n"
-                          +"2-Yayın Sil\n"
-                          +"3-Listele\n"
-                          +"4-Id ile Yayın Ara\n"
-                          +"5-Adı ile Yayın Ara\n"
-                          +"Çıkmak için 0'a basın");
+                +"1-Yayın Ekle\n"
+                +"2-Yayın Sil\n"
+                +"3-Listele\n"
+                +"4-Id ile Yayın Ara\n"
+                +"5-Adı ile Yayın Ara\n"
+                +"Çıkmak için 0'a basın");
     }
     @Override
     public void yayinEkle(Yayin yayin) {
@@ -44,15 +44,18 @@ public class Kitapci implements IKitapci{
     }
 
     @Override
-    public boolean yayinSil(int yayinId) {
+    public void yayinSil(int yayinId) {
+
         for(int i = 0; i < yayinListesi.length; i++){
             Yayin yayin = yayinListesi[i];
             if(yayin != null && yayin.getYayinId() == yayinId){
                 yayinListesi[i] = null;
-                return true;
+                System.out.println("idsi " + yayinId + "olan yayın silindi.");
+            } else {
+                System.out.println("Yayın bulunamadı.");
             }
         }
-        return false;
+
     }
 
     @Override
